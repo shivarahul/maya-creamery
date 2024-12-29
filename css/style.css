@@ -1,4 +1,3 @@
-/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,9 +11,8 @@ body {
     line-height: 1.6;
 }
 
-/* Header Styles */
 header {
-    background: #f44336; /* Red color */
+    background: #f44336;
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -29,7 +27,6 @@ header p {
     font-size: 1.2rem;
 }
 
-/* Navigation Styles */
 nav ul {
     list-style-type: none;
     padding: 10px;
@@ -48,17 +45,17 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ffee58; /* Yellow color */
+    color: #ffee58;
 }
 
-/* Main Banner Section */
 .main-banner {
-    background: url('images/grass-background.jpg') center/cover no-repeat;
-    height: 400px; /* Increased height for a larger banner */
+    background: url('../images/grass.jpg') no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 400px;
     position: relative;
     text-align: center;
     color: white;
-    background-blur: 8px; /* Optional, for a blurred effect */
 }
 
 .main-banner .overlay {
@@ -69,20 +66,21 @@ nav ul li a:hover {
     padding: 20px;
     max-width: 600px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for readability */
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
+    margin-left: 20%;
 }
 
 .main-banner .overlay h2 {
-    font-size: 3rem; /* Increased size for the heading */
+    font-size: 3rem;
     font-weight: bold;
-    color: #ffee58; /* A bright, sunny yellow for contrast */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Shadow for extra visibility */
+    color: #ffee58;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
     margin-bottom: 20px;
 }
 
 .main-banner .overlay p {
-    font-size: 1.2rem; /* Slightly larger paragraph text */
+    font-size: 1.2rem;
     max-width: 500px;
     margin: 0 auto;
     color: white;
@@ -92,43 +90,41 @@ nav ul li a:hover {
 .main-banner .menu-btn {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #ffca28; /* A warm, inviting yellow */
+    background-color: #ffca28;
     color: #333;
     text-decoration: none;
     font-weight: bold;
     border-radius: 30px;
     margin-top: 20px;
-    font-size: 1.2rem; /* Increased font size */
+    font-size: 1.2rem;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .main-banner .menu-btn:hover {
-    background-color: #ffee58; /* Hover effect with a lighter shade */
-    transform: scale(1.1); /* Slight scale-up effect for interaction */
+    background-color: #ffee58;
+    transform: scale(1.1);
 }
 
-/* Optional: Add some ice cream illustrations to the background */
 .main-banner::before {
-    content: url('images/ice-cream-icon.png'); /* Ice cream image/icon */
+    content: url('images/ice-cream-icon.png');
     position: absolute;
     top: 20%;
     left: 10%;
     z-index: 1;
-    width: 100px; /* Adjust size */
+    width: 100px;
     opacity: 0.5;
 }
 
 .main-banner::after {
-    content: url('images/ice-cream-icon.png'); /* Another ice cream image */
+    content: url('images/ice-cream-icon.png');
     position: absolute;
     bottom: 10%;
     right: 10%;
     z-index: 1;
-    width: 100px; /* Adjust size */
+    width: 100px;
     opacity: 0.5;
 }
 
-/* Section Styling */
 section {
     padding: 50px 20px;
     text-align: center;
@@ -140,7 +136,6 @@ section h2 {
     margin-bottom: 30px;
 }
 
-/* Contact Section */
 #contact {
     padding: 50px 20px;
     text-align: center;
@@ -169,14 +164,13 @@ section h2 {
 }
 
 #contact .map-image {
-    width: 100%; /* Make the image responsive */
-    max-width: 600px; /* Max width for larger screens */
+    width: 100%;
+    max-width: 600px;
     height: auto;
     border-radius: 10px;
     margin-top: 20px;
 }
 
-/* Gallery & Menu Styling */
 .menu-gallery, .gallery {
     display: flex;
     justify-content: space-around;
@@ -208,7 +202,6 @@ section h2 {
     margin-top: 5px;
 }
 
-/* Footer Styling */
 footer {
     background-color: #333;
     color: white;
@@ -229,4 +222,79 @@ footer p:first-of-type {
 footer p:last-of-type {
     font-size: 1rem;
     color: #ccc;
+}
+
+@media only screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        padding: 0;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .main-banner {
+        height: 300px;
+    }
+
+    .main-banner .overlay h2 {
+        font-size: 2.5rem;
+    }
+
+    .main-banner .overlay p {
+        font-size: 1rem;
+        max-width: 400px;
+    }
+
+    .menu-item, .gallery .item {
+        width: 48%;
+    }
+
+    .menu-item p, .gallery .item p {
+        font-size: 1rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .main-banner {
+        height: 250px;
+    }
+
+    .main-banner .overlay h2 {
+        font-size: 2rem;
+    }
+
+    .main-banner .overlay p {
+        font-size: 0.9rem;
+    }
+
+    .menu-item, .gallery .item {
+        width: 100%;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
 }

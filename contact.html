@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Maya Creamery & Lounge</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1>Maya Creamery & Lounge</h1>
+        <p>Fresh, Cold & Delightful Rolls!</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Visit us at: <a href="https://www.google.com/maps?q=33.1713,-96.7142" target="_blank">7650 W Stacy Rd STE 210, McKinney, TX 75070</a></p>
+    <p>Phone: <a href="tel:+16234996892">(623) 499-6892</a></p>
+
+    <!-- Map Section -->
+    <div class="map-container" id="map"></div>
+</section>
+
+<footer>
+    <p>"Chill with the best rolls in town!"</p>
+    <p>&copy; 2024 Maya Rolls Ice Cream | All Rights Reserved</p>
+</footer>
+
+<script>
+    function initMap() {
+        // Coordinates of your store location
+        const storeLocation = { lat: 33.1713, lng: -96.7142 }; // Replace with actual coordinates
+
+        // Create a map centered on your store location
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: storeLocation,
+        });
+
+        // Create a marker at your store location
+        const marker = new google.maps.Marker({
+            position: storeLocation,
+            map: map,
+            title: "Maya Creamery & Lounge",
+        });
+    }
+</script>
+
+<!-- Google Maps API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>

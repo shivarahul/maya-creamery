@@ -49,7 +49,7 @@ nav ul li a:hover {
 }
 
 .main-banner {
-    background: url('/images/grass.jpg') no-repeat;
+    background: url('https://shivarahul.github.io/maya-creamery/images/grass.jpg') no-repeat;
     background-size: cover;
     background-position: center center;
     height: 400px;
@@ -237,18 +237,27 @@ footer p:last-of-type {
         font-size: 1rem;
         max-width: 400px;
     }
+
+    .main-banner .overlay {
+        top: 40%;
+    }
 }
 
 @media only screen and (max-width: 480px) {
     .main-banner {
-        height: 250px;
+        height: 200px;
     }
 
     .main-banner .overlay h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .main-banner .overlay p {
         font-size: 0.9rem;
+        max-width: 350px;
+    }
+
+    .main-banner .overlay {
+        top: 30%;
     }
 }

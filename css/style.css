@@ -52,10 +52,11 @@ nav ul li a:hover {
     background: url('https://shivarahul.github.io/maya-creamery/images/grass.jpg') no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 400px;
+    height: 50vh; /* Default height for larger screens */
     position: relative;
     text-align: center;
     color: white;
+    overflow: hidden; /* Ensure no overflow beyond the height of the banner */
 }
 
 .main-banner .overlay {
@@ -226,11 +227,11 @@ footer p:last-of-type {
 
 @media only screen and (max-width: 768px) {
     .main-banner {
-        height: 300px;
+        height: 35vh; /* Set the banner height to 35% of the viewport height */
     }
 
     .main-banner .overlay h2 {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Adjust the size of the text for tablets */
     }
 
     .main-banner .overlay p {
@@ -239,25 +240,26 @@ footer p:last-of-type {
     }
 
     .main-banner .overlay {
-        top: 40%;
+        top: 40%; /* Center the overlay content */
     }
 }
 
+/* For mobile screens (screen width <= 480px) */
 @media only screen and (max-width: 480px) {
     .main-banner {
-        height: 200px;
+        height: 20vh; /* Further reduce the banner height to 20% of the viewport height */
     }
 
     .main-banner .overlay h2 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Smaller font for mobile screens */
     }
 
     .main-banner .overlay p {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* Smaller paragraph text */
         max-width: 350px;
     }
 
     .main-banner .overlay {
-        top: 30%;
+        top: 30%; /* Adjust text position to make it look centered */
     }
 }

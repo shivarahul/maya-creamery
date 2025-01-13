@@ -3,59 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Maya Creamery & Lounge</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Maya Creamery & Lounge - Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/indexstyle.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-<header>
-    <div class="logo">
-        <h1>Maya Creamery & Lounge</h1>
-        <p>Fresh, Cold & Delightful Rolls!</p>
+
+
+<header class="bg-dark text-white text-center py-5" id="home-header">
+    <div class="container">
+        <h1 class="display-4 animate__animated animate__fadeIn">Maya Creamery & Lounge</h1>
+        <p class="lead animate__animated animate__fadeIn">Fresh, Cold & Delightful Rolls!</p>
+        <nav class="nav justify-content-center mt-4 animate__animated animate__fadeIn">
+            <a class="nav-link text-white" href="index.html">Home</a>
+            <a class="nav-link text-white" href="menu.html">Menu</a>
+            <a class="nav-link text-white" href="about.html">About Us</a>
+            <a class="nav-link text-white" href="contact.html">Contact</a>
+        </nav>
     </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
 </header>
 
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Visit us at: <a href="https://www.google.com/maps?q=33.1713,-96.7142" target="_blank">7650 W Stacy Rd STE 210, McKinney, TX 75070</a></p>
-    <p>Phone: <a href="tel:+16234996892">(623) 499-6892</a></p>
+<section id="contact" class="py-5">
+    <div class="container text-center">
+        <h2>Contact Us</h2>
+        <p>Visit us at: <a href="https://www.google.com/maps?q=33.1713,-96.7142" target="_blank">7650 W Stacy Rd STE 210, McKinney, TX 75070</a></p>
+        <p>Phone: <a href="tel:+16234996892">(623) 499-6892</a></p>
 
-    <!-- Map Section -->
-    <div class="map-container" id="map"></div>
+        <!-- Map Section -->
+        <div class="map-container my-4" id="map"></div>
+
+        <!-- New Stores Opening Soon -->
+        <section id="new-stores">
+            <h3 class="mt-5">New Stores Opening Soon!</h3>
+            <div class="store">
+                <h4>Store 1: ABC Location</h4>
+                <p>Opening Soon at: <a href="https://www.google.com/maps?q=33.1713,-96.7142" target="_blank">1234 ABC Street, Dallas, TX 75001</a></p>
+            </div>
+            <div class="store">
+                <h4>Store 2: XYZ Location</h4>
+                <p>Opening Soon at: <a href="https://www.google.com/maps?q=33.1713,-96.7142" target="_blank">5678 XYZ Avenue, Frisco, TX 75035</a></p>
+            </div>
+        </section>
+    </div>
 </section>
 
-<footer>
+<footer class="bg-dark text-white text-center py-3">
     <p>"Chill with the best rolls in town!"</p>
     <p>&copy; 2024 Maya Rolls Ice Cream | All Rights Reserved</p>
 </footer>
 
-<script>
-    function initMap() {
-        // Coordinates of your store location
-        const storeLocation = { lat: 33.1713, lng: -96.7142 }; // Replace with actual coordinates
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-        // Create a map centered on your store location
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 15,
-            center: storeLocation,
-        });
-
-        // Create a marker at your store location
-        const marker = new google.maps.Marker({
-            position: storeLocation,
-            map: map,
-            title: "Maya Creamery & Lounge",
-        });
-    }
-</script>
-
+<!-- Google Maps API -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+
+<!-- Custom JavaScript -->
+<script src="js/contactscript.js"></script>
+
 </body>
 </html>

@@ -4,58 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Maya Creamery & Lounge</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Maya Creamery & Lounge - Home</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/indexstyle.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-<header>
-  <div class="logo">
-    <h1>Maya Creamery & Lounge</h1>
-    <p>Fresh, Cold & Delightful Rolls!</p>
+
+<!-- Header Section -->
+<header class="bg-dark text-white text-center py-5" id="home-header">
+  <div class="container">
+    <h1 class="display-4 animate__animated animate__fadeIn">Maya Creamery & Lounge</h1>
+    <p class="lead animate__animated animate__fadeIn animate__delay-1s">Fresh, Cold & Delightful Rolls!</p>
+    <nav class="nav justify-content-center mt-4 animate__animated animate__fadeIn animate__delay-2s">
+      <a class="nav-link text-white" href="index.html">Home</a>
+      <a class="nav-link text-white" href="menu.html">Menu</a>
+      <a class="nav-link text-white" href="about.html">About Us</a>
+      <a class="nav-link text-white" href="contact.html">Contact</a>
+    </nav>
   </div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-  </nav>
 </header>
 
-<section class="main-banner">
-  <div class="overlay">
-    <h2>Explore Our Signature Rolls!</h2>
-    <p>Experience the unique twist of rolled ice cream, with fresh ingredients and irresistible toppings.</p>
-    <a href="menu.html" class="menu-btn">See Our Menu</a>
+<!-- Fullscreen Image Section -->
+<section class="fullscreen-section" id="fullscreen-section">
+  <div class="image-slide-container">
+    <div class="image-slide" id="image-1"></div>
   </div>
 </section>
 
-<section class="ice-cream-gallery">
-  <h2>Our Delicious Ice Cream Rolls</h2>
-  <div class="gallery">
-    <div class="item">
-      <img src="images/roll1.jpg" alt="Chocolate Roll">
-      <p>Chocolate Paradise</p>
-    </div>
-    <div class="item">
-      <img src="images/roll2.jpg" alt="Strawberry Roll">
-      <p>Strawberry Dream</p>
-    </div>
-    <div class="item">
-      <img src="images/roll3.jpg" alt="Mango Roll">
-      <p>Sunny Mango</p>
-    </div>
-    <div class="item">
-      <img src="images/roll4.jpg" alt="Vanilla Roll">
-      <p>Vanilla Delight</p>
-    </div>
-  </div>
-</section>
-
-<footer>
+<!-- Footer Section -->
+<footer class="bg-dark text-white text-center py-4">
   <p>"Chill with the best rolls in town!"</p>
   <p>&copy; 2024 Maya Rolls Ice Cream | All Rights Reserved</p>
 </footer>
+
+<script src="js/index.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

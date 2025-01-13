@@ -4,54 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Maya Creamery & Lounge - Menu</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Maya Creamery & Lounge - Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/menustyle.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-<header>
-    <div class="logo">
-        <h1>Maya Creamery & Lounge</h1>
-        <p>Fresh, Cold & Delightful Rolls!</p>
+
+<!-- Header Section -->
+<header class="bg-dark text-white text-center py-5" id="home-header">
+    <div class="container">
+        <h1 class="display-4 animate__animated animate__fadeIn">Maya Creamery & Lounge</h1>
+        <p class="lead animate__animated animate__fadeIn">Fresh, Cold & Delightful Rolls!</p>
+        <nav class="nav justify-content-center mt-4 animate__animated animate__fadeIn">
+            <a class="nav-link text-white" href="index.html">Home</a>
+            <a class="nav-link text-white" href="menu.html">Menu</a>
+            <a class="nav-link text-white" href="about.html">About Us</a>
+            <a class="nav-link text-white" href="contact.html">Contact</a>
+        </nav>
     </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
 </header>
 
+<!-- Section: Ice Cream Rolls Menu -->
 <section class="menu-section">
-    <h2>Our Signature Ice Cream Rolls</h2>
-    <div class="menu-gallery">
-        <div class="menu-item">
-            <img src="images/roll1.jpg" alt="Chocolate Roll">
-            <p>Chocolate Paradise</p>
-            <p class="description">Rich chocolate rolls topped with crispy chocolate flakes and nuts.</p>
+    <div class="container">
+        <h2 class="text-center">Our Signature Ice Cream Rolls</h2>
+        <div class="menu-gallery row" id="menu-gallery">
+            <!-- Dynamic ice cream rolls will be inserted here -->
         </div>
-        <div class="menu-item">
-            <img src="images/roll2.jpg" alt="Strawberry Roll">
-            <p>Strawberry Dream</p>
-            <p class="description">Sweet and creamy strawberry rolls with fresh strawberries and cream.</p>
-        </div>
-        <div class="menu-item">
-            <img src="images/roll3.jpg" alt="Mango Roll">
-            <p>Sunny Mango</p>
-            <p class="description">Tropical mango rolls with fresh mango pieces and a citrus drizzle.</p>
-        </div>
-        <div class="menu-item">
-            <img src="images/roll4.jpg" alt="Vanilla Roll">
-            <p>Vanilla Delight</p>
-            <p class="description">Classic vanilla rolls with caramel drizzle and cookie crumble.</p>
+        <div class="text-center">
+            <button class="btn btn-dark load-more-btn" id="load-more">Load More</button>
         </div>
     </div>
 </section>
 
-<footer>
+<!-- Modal for showing more details -->
+<div class="modal fade" id="rollModal" tabindex="-1" role="dialog" aria-labelledby="rollModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="rollModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="roll-description"></p>
+                <img src="" id="roll-image" class="img-fluid" alt="Roll image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-dark text-white text-center py-3">
     <p>"Chill with the best rolls in town!"</p>
     <p>&copy; 2024 Maya Rolls Ice Cream | All Rights Reserved</p>
 </footer>
+
+<script src="js/menu.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

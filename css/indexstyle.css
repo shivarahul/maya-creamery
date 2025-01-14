@@ -18,56 +18,102 @@ body {
 
 /* Header Styles */
 #home-header {
-  height: 20vh; /* 20% of the viewport height */
+  height: 20vh; /* Set header height to 20% of viewport height */
   background-color: #343a40;
   color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: space-between; /* Distribute space between logo and nav */
+  align-items: center; /* Vertically center the content */
+  padding: 0 50px; /* Add some padding for better spacing */
 }
 
-#home-header h1 {
-  font-size: 3em;
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
 }
 
-#home-header p {
-  font-size: 1.5em;
+.logo-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;  /* Increase logo size for desktop */
 }
 
-/* Header Navigation */
 .nav {
-  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;  /* Align navigation links to the right */
+  gap: 20px;  /* Space out navigation links */
 }
 
 .nav-link {
   font-size: 1.2em;
   padding: 10px;
   color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Scrolling Text Section */
+.scrolling-text-section {
+  background-color: #FFF5E1;
+  color: black;
+  height: 5vh;  /* 5% of the viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;  /* Hide overflow to create a smooth scrolling effect */
+}
+
+.scrolling-text {
+  white-space: nowrap;  /* Prevent text from wrapping */
+  animation: scroll-text 20s linear infinite;  /* Scroll the text horizontally */
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /* Fullscreen Image Section */
 .fullscreen-section {
   position: relative;
-  height: 60vh; /* 60% of the viewport height */
+  height: 64vh; /* 60% of the viewport height */
   width: 100%;
   overflow: hidden;
 }
 
 .image-slide-container {
-  display: flex;
+  position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.5s ease-in-out;
 }
 
 .image-slide {
+  position: absolute; /* Stack the images on top of each other */
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
-  background-image: url('../images/store1.jpg'); /* Replace with your image */
+  opacity: 0; /* Hide all images initially */
+  transition: opacity 0.5s ease-in-out; /* Smooth fade effect */
+  z-index: 0; /* Ensure all images are stacked */
+}
+
+/* Images as background for each slide */
+#image-1 {
+  background-image: url('../images/store1.jpg'); /* Replace with actual image path */
+}
+
+#image-2 {
+  background-image: url('../images/store2.jpg'); /* Replace with actual image path */
+}
+
+.image-slide.active {
+  opacity: 1; /* Show the active image */
+  z-index: 1; /* Bring the active image to the front */
 }
 
 /* Footer Styles */
@@ -75,8 +121,8 @@ footer {
   background-color: #333;
   color: white;
   text-align: center;
-  padding: 10px 0;  /* Adjusted padding */
-  height: 10vh; /* 20% of the viewport height (reduced footer size) */
+  padding: 10px 0;
+  height: 10vh; /* Default height for large screens */
 }
 
 footer p {
@@ -85,4 +131,30 @@ footer p {
 
 footer p:last-child {
   font-size: 0.9rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  #home-header {
+    height: 15vh;  /* Slightly reduce header height on mobile */
+    padding: 0 10px;  /* Less padding on mobile */
+  }
+
+  .logo-img {
+    max-height: 120px;  /* Adjust logo size on mobile */
+  }
+
+  .nav-link {
+    font-size: 1.1em;  /* Slightly smaller font size for mobile */
+    padding: 8px;
+  }
+
+  .fullscreen-section {
+    height: 40vh; /* Adjust image height on small screens */
+  }
+
+  footer {
+    height: 15vh; /* Increase footer height on mobile */
+    font-size: 0.8rem;
+  }
 }

@@ -1,60 +1,91 @@
-const iceCreamRolls = [
-    { name: "Chocolate Paradise", description: "Rich chocolate rolls topped with crispy chocolate flakes and nuts.", image: "images/roll1.jpg" },
-    { name: "Strawberry Dream", description: "Sweet and creamy strawberry rolls with fresh strawberries and cream.", image: "images/roll2.jpg" },
-    { name: "Sunny Mango", description: "Tropical mango rolls with fresh mango pieces and a citrus drizzle.", image: "images/roll3.jpg" },
-    { name: "Vanilla Delight", description: "Classic vanilla rolls with caramel drizzle and cookie crumble.", image: "images/roll4.jpg" },
-    { name: "Pistachio Dream", description: "Creamy pistachio rolls with a sprinkle of roasted pistachio.", image: "images/roll5.jpg" },
-    { name: "Blueberry Bliss", description: "Refreshing blueberry rolls with a sweet blueberry compote.", image: "images/roll6.jpg" },
-    { name: "Caramel Crunch", description: "Smooth caramel rolls with crunchy caramel pieces and a touch of sea salt.", image: "images/roll7.jpg" },
-    { name: "Coconut Bliss", description: "Creamy coconut rolls with toasted coconut flakes and tropical flavors.", image: "images/roll8.jpg" },
-    { name: "Matcha Green Tea", description: "Earthy matcha rolls with a drizzle of honey and a matcha dusting.", image: "images/roll9.jpg" },
-    { name: "Tropical Fusion", description: "Mango and pineapple rolls with a splash of coconut cream.", image: "images/roll10.jpg" },
-];
+$(document).ready(function() {
+    // Sample data for ice cream rolls
+    const iceCreamRolls = [
+        {
+            name: 'Classic Vanilla',
+            description: 'A smooth and creamy vanilla ice cream roll topped with chocolate chips and a caramel drizzle.',
+            image: 'images/roll1.jpg'
+        },
+        {
+            name: 'Chocolate Heaven',
+            description: 'Rich and decadent chocolate ice cream rolls with a sprinkle of crushed nuts and a berry syrup.',
+            image: 'images/roll2.jpg'
+        },
+        {
+            name: 'Strawberry Bliss',
+            description: 'Refreshing strawberry ice cream rolls, topped with fresh strawberries and a whipped cream drizzle.',
+            image: 'images/roll3.jpg'
+        },
+        {
+            name: 'Tropical Mango',
+            description: 'Mango ice cream rolls with a tropical twist, topped with shredded coconut and a hint of lime.',
+            image: 'images/roll4.jpg'
+        },
+        {
+            name: 'Matcha Delight',
+            description: 'Green tea flavored ice cream rolls, complemented by a touch of honey and crushed almonds.',
+            image: 'images/roll5.jpg'
+        },
+        {
+            name: 'Mint Choco Crunch',
+            description: 'A refreshing mint ice cream roll with crunchy chocolate bits and a minty syrup drizzle.',
+            image: 'images/roll6.jpg'
+        }
+    ];
 
-let itemsPerPage = 5;
-let currentPage = 0;
+    let currentIndex = 0;
+    const itemsPerLoad = 3;
 
-function renderMenu() {
-    const startIndex = currentPage * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const rollsToShow = iceCreamRolls.slice(startIndex, endIndex);
+    // Function to load the ice cream rolls
+    function loadIceCreamRolls() {
+        const container = $('#menu-gallery');
+        const endIndex = Math.min(currentIndex + itemsPerLoad, iceCreamRolls.length);
 
-    rollsToShow.forEach(roll => {
-        const rollItem = `
-            <div class="col-md-4 menu-item" data-toggle="modal" data-target="#rollModal" data-name="${roll.name}" data-description="${roll.description}" data-image="${roll.image}">
-                <img src="${roll.image}" alt="${roll.name}">
-                <div class="details">
-                    <p class="roll-name">${roll.name}</p>
-                    <p class="description">${roll.description}</p>
+        // Loop through the array to add items to the gallery
+        for (let i = currentIndex; i < endIndex; i++) {
+            const roll = iceCreamRolls[i];
+            const menuItem = `
+                <div class="col-md-4">
+                    <div class="menu-item animate__animated animate__fadeIn">
+                        <img src="${roll.image}" alt="${roll.name}">
+                        <div class="details">
+                            <h4 class="roll-name">${roll.name}</h4>
+                            <p class="description">${roll.description.substring(0, 50)}...</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        `;
-        $('#menu-gallery').append(rollItem);
-    });
-}
+            `;
+            container.append(menuItem);
+        }
 
-$('#load-more').on('click', function() {
-    currentPage++;
-    renderMenu();
+        currentIndex = endIndex;  // Update currentIndex for next load
 
-    // Hide the "Load More" button if all items are shown
-    if ((currentPage + 1) * itemsPerPage >= iceCreamRolls.length) {
-        $(this).hide();
+        // Hide the "Load More" button if all items have been loaded
+        if (currentIndex >= iceCreamRolls.length) {
+            $('#load-more').hide();
+        }
     }
+
+    // Click event for Load More button
+    $('#load-more').click(function() {
+        loadIceCreamRolls();
+    });
+
+    // Initial load of ice cream rolls
+    loadIceCreamRolls();
+
+    // Modal functionality
+    $(document).on('click', '.menu-item', function() {
+        const rollName = $(this).find('.roll-name').text();
+        const rollDescription = $(this).find('.description').text();
+        const rollImage = $(this).find('img').attr('src');
+
+        // Set modal content
+        $('#rollModalLabel').text(rollName);
+        $('#roll-description').text(rollDescription);
+        $('#roll-image').attr('src', rollImage);
+
+        // Show modal
+        $('#rollModal').modal('show');
+    });
 });
-
-// Modal interaction
-$('#rollModal').on('show.bs.modal', function (event) {
-    const button = $(event.relatedTarget);
-    const rollName = button.data('name');
-    const rollDescription = button.data('description');
-    const rollImage = button.data('image');
-
-    const modal = $(this);
-    modal.find('.modal-title').text(rollName);
-    modal.find('#roll-description').text(rollDescription);
-    modal.find('#roll-image').attr('src', rollImage);
-});
-
-// Initial load
-renderMenu();

@@ -1,38 +1,22 @@
 $(document).ready(function() {
-  let currentImage = 1; // Track the current image (1 or 2)
+  let currentImage = 0; // Start at the first image (index 0)
+  const totalImages = $('.image-slide').length; // Get the total number of images
 
-  // Function to change the image by translating the image container
-  function changeImage(direction) {
-    const slideContainer = $('.image-slide-container');
+  // Show the first image when the page loads
+  $('.image-slide').eq(currentImage).addClass('active');
 
-    if (direction === 'right') {
-      if (currentImage === 1) {
-        slideContainer.css('transform', 'translateX(-100%)'); // Slide to second image
-        currentImage = 2;
-      } else {
-        slideContainer.css('transform', 'translateX(0%)'); // Slide back to first image
-        currentImage = 1;
-      }
-    }
+  // Function to change the image by adding/removing 'active' class
+  function changeImage() {
+    // Hide current image
+    $('.image-slide').eq(currentImage).removeClass('active');
+
+    // Increment currentImage, loop back to 0 if at the end
+    currentImage = (currentImage + 1) % totalImages;
+
+    // Show the next image
+    $('.image-slide').eq(currentImage).addClass('active');
   }
 
-  // Left arrow click (optional, if you want to slide left)
-  $('#left-arrow').on('click', function() {
-    if (currentImage === 2) {
-      $('.image-slide-container').css('transform', 'translateX(0%)');
-      currentImage = 1;
-    }
-  });
-
-  // Right arrow click
-  $('#right-arrow').on('click', function() {
-    changeImage('right');
-  });
-
-  // Optional: To scroll to the Menu section when the Explore button is clicked
-  $('#explore-menu').on('click', function() {
-    $('html, body').animate({
-      scrollTop: $('#interaction-section').offset().top
-    }, 1000);
-  });
+  // Automatically change the image every 5 seconds
+  setInterval(changeImage, 5000);  // 5000 milliseconds = 5 seconds
 });

@@ -13,35 +13,43 @@ body {
   overflow-x: hidden; /* Allow vertical scrolling */
 }
 
+
 /* Header Styles */
 #home-header {
-  height: 20vh; /* 20% of the viewport height */
+  height: 20vh; /* Set header height to 20% of viewport height */
   background-color: #343a40;
   color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: space-between; /* Distribute space between logo and nav */
+  align-items: center; /* Vertically center the content */
+  padding: 0 50px; /* Add some padding for better spacing */
 }
 
-#home-header h1 {
-  font-size: 3em;
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
 }
 
-#home-header p {
-  font-size: 1.5em;
+.logo-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;  /* Increase logo size for desktop */
 }
 
-/* Header Navigation */
 .nav {
-  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;  /* Align navigation links to the right */
+  gap: 20px;  /* Space out navigation links */
 }
 
 .nav-link {
   font-size: 1.2em;
   padding: 10px;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
 }
+
 
 /* Menu section styles */
 .menu-section {

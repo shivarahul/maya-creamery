@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Maya Creamery & Lounge - Home</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/indexstyle.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -13,28 +14,36 @@
 <body>
 
 <!-- Header Section -->
-<header class="bg-dark text-white text-center py-5" id="home-header">
-  <div class="container">
-    <h1 class="display-4 animate__animated animate__fadeIn">Maya Creamery & Lounge</h1>
-    <p class="lead animate__animated animate__fadeIn animate__delay-1s">Fresh, Cold & Delightful Rolls!</p>
-    <nav class="nav justify-content-center mt-4 animate__animated animate__fadeIn animate__delay-2s">
-      <a class="nav-link text-white" href="index.html">Home</a>
-      <a class="nav-link text-white" href="menu.html">Menu</a>
-      <a class="nav-link text-white" href="about.html">About Us</a>
-      <a class="nav-link text-white" href="contact.html">Contact</a>
-    </nav>
+<header class="bg-dark text-white d-flex justify-content-between align-items-center" id="home-header">
+  <div class="logo-container">
+    <img src="images/logo.png" alt="Maya Creamery & Lounge Logo" class="img-fluid logo-img animate__animated animate__fadeIn">
   </div>
+
+  <nav class="nav">
+    <a class="nav-link text-white" href="index.html">Home</a>
+    <a class="nav-link text-white" href="menu.html">Menu</a>
+    <a class="nav-link text-white" href="about.html">About Us</a>
+    <a class="nav-link text-white" href="contact.html">Contact</a>
+  </nav>
 </header>
+
+<!-- Horizontal Scrolling Text Section -->
+<section class="scrolling-text-section">
+  <div class="scrolling-text">
+    <p>Indulge in our creamy, cold rolls made with the finest ingredients. Experience the smoothest, coolest treat in town. Treat yourself to a refreshing moment of bliss with every roll of ice cream. Maya Creamery - The perfect place to chill!</p>
+  </div>
+</section>
 
 <!-- Fullscreen Image Section -->
 <section class="fullscreen-section" id="fullscreen-section">
   <div class="image-slide-container">
     <div class="image-slide" id="image-1"></div>
+    <div class="image-slide" id="image-2"></div>
   </div>
 </section>
 
 <!-- Footer Section -->
-<footer class="bg-dark text-white text-center py-4">
+<footer class="bg-dark text-white text-center">
   <p>"Chill with the best rolls in town!"</p>
   <p>&copy; 2024 Maya Rolls Ice Cream | All Rights Reserved</p>
 </footer>
